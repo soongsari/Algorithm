@@ -1,15 +1,12 @@
-n = list(map(int, input().split()))
-data = []
+n = int(input())
+data = list(map(int, input().split()))
+
 total=0
-cnt =0;
-for i in range (n[0]):
-    data.append(int(input()))
 
+data.sort()
 
-for j in range (n[0]-1,-1,-1):
-    if (n[1]%data[j] != n[1]):
-        cnt = int(n[1]/data[j])
-        n[1] = n[1]%data[j]
-        total += cnt
+for i in range (n):
+    for j in range (i+1):
+        total += data[j]
 
 print(total)
