@@ -4,26 +4,13 @@ arr = []
 for i in range(n):
     arr.append(list(map(int,input().split())))
 
-arr.sort()
+arr.sort(key=lambda x:(x[1],x[0]))
 
-next = 0
 cnt = 0
-
-
-i=0
-while(i<n):
-    j= i+1
-    while(j<n):
-        if arr[i][1]>arr[j][0]:
-            if arr[i][0] != arr[j][0] and arr[i][1] > arr[j][1]:
-                next = arr[j][1]
-                i = j
-        else:
-            i = j
-            break
-        j+=1
-    i=j
-    cnt+=1
-
+end = 0
+for i in range(len(arr)):
+    if end<=arr[i][0]:
+        end = arr[i][1]
+        cnt+=1
 
 print(cnt)
